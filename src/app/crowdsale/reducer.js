@@ -11,6 +11,7 @@ export default (state = defaultState, action) => {
         ...state,
         account: action.account,
         balance: action.balance,
+        token: action.token,
       }
 
     default:

@@ -14,7 +14,7 @@ export default [
         exact: true,
       },
       {
-        path: '/crowdsale',
+        path: '/crowdsale/:id',
         component: CrowdSale,
         exact: true,
       },

@@ -13,10 +13,15 @@ class CrowdSale extends Component {
   }
 
   componentWillMount () {
-    this.props.initDemo()
+
+    this.props.initDemo(this.props.match.params.id)
+    // this.props.getDetails()
+
   }
 
   render () {
+
+    console.log(this.props)
 
     const n = 8
 
@@ -49,9 +54,10 @@ class CrowdSale extends Component {
           </div>
 
         </div>
-        <div className='bx--col-xs-12'>
 
-          <p className='bx--type-beta'>TOKN Security Token headline</p>
+        <div className='bx--col-xs-12'>
+          {this.props.token ? (<p className='bx--type-beta'>{this.props.token.data.ticker} Security Token headline</p>) : 'Loading...'}
+
           <p>&nbsp;</p>
           <p>&nbsp;</p>
         </div>
@@ -128,6 +134,7 @@ class CrowdSale extends Component {
 const mapStateToProps = (state) => ({
   balance: state.demo.balance && state.demo.balance.toString(10),
   account: state.demo.account,
+  token: state.demo.token,
 })
 
 const mapDispatchToProps = {

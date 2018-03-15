@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { initDemo } from './actions'
+import Clock from './components/Clock'
 
 import { Tile, Button } from "carbon-components-react"
 
 class CrowdSale extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = { deadline: 'May, 4, 2018' }
+  }
+
   static propTypes = {
     balance: PropTypes.string,
     account: PropTypes.string,
@@ -20,8 +27,6 @@ class CrowdSale extends Component {
   }
 
   render () {
-
-    console.log(this.props)
 
     const n = 8
 
@@ -87,14 +92,8 @@ class CrowdSale extends Component {
         <div className='bx--col-xs-6'>
           <Tile>
             <p>Time left until offering's finish</p>
-            <div className='bx--grid tokenCountdown'>
-              <div className='bx--row'>
-                <div className='bx--col-xs-6 bx--col-md-3'><span>DAYS</span><h1>44</h1></div>
-                <div className='bx--col-xs-6 bx--col-md-3'><span>HOURS</span><h1>34</h1></div>
-                <div className='bx--col-xs-6 bx--col-md-3'><span>MINUTES</span><h1>12</h1></div>
-                <div className='bx--col-xs-6 bx--col-md-3'><span>SECONDS</span><h1>22</h1></div>
-              </div>
-            </div>
+            <Clock deadline={this.state.deadline} />
+
           </Tile>
           <Button kind='secondary'>Pause STO</Button>
         </div>

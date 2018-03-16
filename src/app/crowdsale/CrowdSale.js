@@ -38,7 +38,7 @@ class CrowdSale extends Component {
           <div className='nav'>
             <div className='nav-header'>
               <div className='nav-title'>
-                Polymath
+                <img alt='logo' src='/img/site-logo.svg' />
               </div>
             </div>
             <div className='nav-btn'>

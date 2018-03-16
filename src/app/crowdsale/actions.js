@@ -1,6 +1,7 @@
 import { PolyToken } from 'polymath.js_v2'
-import axios from 'axios'
 import { actionGen } from '../../redux/helpers'
+
+import { getSecurityToken } from '../../api'
 
 export const DEMO = 'demo'
 export const demo = actionGen(DEMO)
@@ -12,23 +13,20 @@ export const initDemo = (ticker) => async (dispatch) => {
 
   try {
 
-    //TODO @shannon: Refactor the following API call
-    axios.get('https://polymath-api-staging.herokuapp.com/securitytoken/' + ticker)
-      .then(function (response) {
+    const meta = await getSecurityToken(ticker)
+    console.log(meta)
 
-        dispatch(
-          demo(
-            {
-              account: PolyToken.account,
-              balance: myBalance,
-              token: response,
-            }
-          )
-        )
-      })
-      .catch(function (error) {
-        //Do something for an error
-      })
+    dispatch(
+      demo(
+        {
+          account: PolyToken.account,
+          balance: myBalance,
+          token: meta,
+        }
+      )
+    )
+
+
 
   } catch (e) {
     //Do something for an error

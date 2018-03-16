@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>2. Icons/acc</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12,19.2 C9.5,19.2 7.29,17.92 6,16 C6.03,14 10,12.9 12,12.9 C14,12.9 17.97,14 18,16 C16.71,17.92 14.5,19.2 12,19.2 Z M12,5 C13.6568542,5 15,6.34314575 15,8 C15,9.65685425 13.6568542,11 12,11 C10.3431458,11 9,9.65685425 9,8 C9,6.34314575 10.3431458,5 12,5 Z M12,2 C6.4771525,2 2,6.4771525 2,12 C2,14.6521649 3.0535684,17.195704 4.92893219,19.0710678 C6.80429597,20.9464316 9.3478351,22 12,22 C14.6521649,22 17.195704,20.9464316 19.0710678,19.0710678 C20.9464316,17.195704 22,14.6521649 22,12 C22,6.47 17.5,2 12,2 Z" id="path-1"></path>
+    </defs>
+    <g id="top-bar-menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1100.000000, -22.000000)">
+        <g id="Group-2">
+            <g transform="translate(1098.000000, 20.000000)">
+                <g id="2.-Icons/acc">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="1.-Colors/Light-blue" mask="url(#mask-2)" fill="#81D4FA" fill-rule="evenodd">
+                        <rect id="Gray-85" x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

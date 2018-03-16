@@ -1,0 +1,9 @@
+{
+  "API": "https://polymath-api-staging.herokuapp.com",
+  "CREATION_FEE": 100000,
+  "HOST_ADDRESS": "0xEfa1958B3248A95c08F0a964Ad844848f1D7e0A3",
+  "PolyToken_Address": "0x96a62428509002a7ae5f6ad29e4750d852a3f3d7",
+  "Compliance_Address": "0x7a3a0acde71718c0224e677f9586a18701e11815",
+  "Customers_Address": "0x9e892f4e7ac1e13778599a1506cf68ff2e3cb938",
+  "SecurityTokenRegistrar_Address": "0xe93d40736a9537308d822bf15edae634a24be179"
+}

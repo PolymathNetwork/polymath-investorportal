@@ -36,9 +36,10 @@ class App extends Component {
   }
 
   render () {
-    return (<div className='bx--grid'>
-      {renderRoutes(this.props.route.routes)}
-    </div>)
+    return (
+      <div className='bx--grid'>
+        {renderRoutes(this.props.route.routes)}
+      </div>)
   }
 }
 

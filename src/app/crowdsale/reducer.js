@@ -2,6 +2,8 @@ import * as a from './actions'
 
 const defaultState = {
   balance: null,
+  token: null,
+  details: null,
 }
 
 export default (state = defaultState, action) => {
@@ -12,6 +14,7 @@ export default (state = defaultState, action) => {
         account: action.account,
         balance: action.balance,
         token: action.token,
+        details: action.details,
       }
 
     default:

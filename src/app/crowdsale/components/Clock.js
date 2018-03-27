@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
 
+import PropTypes from 'prop-types'
+
 class Clock extends Component {
+
+  static propTypes = {
+    deadline: PropTypes.string,
+  }
+
   constructor (props) {
     super(props)
+
     this.state = {
       days: 0,
       hours: 0,
@@ -16,9 +24,7 @@ class Clock extends Component {
   componentDidMount () {
     setInterval(() => this.getTimeUntil(this.props.deadline), 1000)
   }
-  leading0 (num) {
-    return num < 10 ? '0' + num : num
-  }
+
   getTimeUntil (deadline) {
     const time = Date.parse(deadline) - Date.parse(new Date())
     if (time < 0) {
@@ -31,6 +37,9 @@ class Clock extends Component {
       const days = Math.floor(time / (1000 * 60 * 60 * 24))
       this.setState({ days, hours, minutes, seconds })
     }
+  }
+  leading0 (num) {
+    return num < 10 ? '0' + num : num
   }
   render () {
     return (

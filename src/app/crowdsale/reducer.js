@@ -4,6 +4,7 @@ const defaultState = {
   balance: null,
   token: null,
   details: null,
+  investors: null,
 }
 
 export default (state = defaultState, action) => {
@@ -15,6 +16,7 @@ export default (state = defaultState, action) => {
         balance: action.balance,
         token: action.token,
         details: action.details,
+        investors: action.investors,
       }
 
     default:

@@ -41,7 +41,35 @@ export const initDemo = (ticker) => async (dispatch) => {
     tokenDetails = await sto.getDetails()
     // console.log(tokenDetails)
 
-    investorList = await sto.getPurchases()
+    // investorList = await sto.getPurchases()
+
+    investorList = [
+      {
+        investor: "0xf17f52151EbEF6C7334FAD080c5704D77216b732",
+        txHash: "0x4168696282b72e7e2add536b4f707e02713f1824ad694d007de7e91da42cf4e7",
+        amount: "2000",
+        paid: "1",
+        id: "1",
+      }, {
+        investor: "0xf17f52151EbEF6C7334FAD080c5704D77216b733",
+        txHash: "0x4168696282b72e7e2add536b4f707e02713f1824ad694d007de7e91da42cf4e8",
+        amount: "2000",
+        paid: "2",
+        id: "2",
+      }, {
+        investor: "0xf17f52151EbEF6C7334FAD080c5704D77216b734",
+        txHash: "0x4168696282b72e7e2add536b4f707e02713f1824ad694d007de7e91da42cf4e9",
+        amount: "2000",
+        paid: "3",
+        id: "3",
+      }, {
+        investor: "0xf17f52151EbEF6C7334FAD080c5704D77216b735",
+        txHash: "0x4168696282b72e7e2add536b4f707e02713f1824ad694d007de7e91da42cf4e0",
+        amount: "2000",
+        paid: "4",
+        id: "4",
+      },
+    ]
 
     // console.log(await sto.getPurchases())
 

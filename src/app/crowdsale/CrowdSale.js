@@ -24,7 +24,8 @@ class CrowdSale extends Component {
     initDemo: PropTypes.func.isRequired,
     match: PropTypes.func,
     details: PropTypes.Array,
-    token: PropTypes.string,
+    investors: PropTypes.Array,
+    token: PropTypes.Array,
   }
 
   componentWillMount () {
@@ -37,17 +38,7 @@ class CrowdSale extends Component {
   render () {
 
     // const n = 8
-
     const { details } = this.props
-
-    const rowData = [{
-
-      investor: "0xf17f52151EbEF6C7334FAD080c5704D77216b732",
-      txHash: "0x4168696282b72e7e2add536b4f707e02713f1824ad694d007de7e91da42cf4e7",
-      amount: "2000",
-      paid: "1",
-
-    }]
 
     return (
 
@@ -126,42 +117,45 @@ class CrowdSale extends Component {
         <div className='bx--col-xs-12'>
           <p>List of Investors</p>
 
-          <DataTable
-            rows={rowData}
-            headers={[
-              { key: "investor", header: "Investor" },
-              { key: "txHash", header: "Tx Hash" },
-              { key: "amount", header: "Amount" },
-              { key: "paid", header: "Paid" }]}
-            // eslint-disable-next-line
-            render={({ rows, headers, getHeaderProps }) => {
-              return (
-                <TableContainer title='DataTable'>
-                  <Table>
-                    <TableHead>
-                      <TableRow>
-                        {headers.map((header) => (
-                          <TableHeader {...getHeaderProps({ header })}>
-                            {header.header}
-                          </TableHeader>
-                        ))}
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rows.map((row) => (
-                        <TableRow key={row.id}>
-                          {row.cells.map((cell) => (
-                            <TableCell key={cell.id}>{cell.value}</TableCell>
+          {this.props.investors ? (
+            <DataTable
+              rows={this.props.investors}
+              headers={[
+                { key: "investor", header: "Investor" },
+                { key: "txHash", header: "Tx Hash" },
+                { key: "amount", header: "Amount" },
+                { key: "paid", header: "Paid" }]}
+              // eslint-disable-next-line
+              render={({ rows, headers, getHeaderProps }) => {
+                return (
+                  <TableContainer title='DataTable'>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          {headers.map((header) => (
+                            <TableHeader {...getHeaderProps({ header })}>
+                              {header.header}
+                            </TableHeader>
                           ))}
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              )
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow key={row.id}>
+                            {row.cells.map((cell) => (
+                              <TableCell key={cell.id}>{cell.value}</TableCell>
+                            ))}
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                )
 
-            }}
-          />
+              }}
+            />
+
+          ) : 'Loading investors...'}
 
         </div>
       </div>
@@ -174,6 +168,7 @@ const mapStateToProps = (state) => ({
   account: state.demo.account,
   token: state.demo.token,
   details: state.demo.details,
+  investors: state.demo.investors,
 })
 
 const mapDispatchToProps = {

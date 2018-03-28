@@ -3,9 +3,18 @@ import moment from 'moment'
 
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Tile } from "carbon-components-react"
+import { Tile, DataTable } from "carbon-components-react"
 import { initDemo } from './actions'
 import Clock from './components/Clock'
+
+// De-structure `DataTable` directly to get local references
+const { TableContainer,
+  Table,
+  TableHead,
+  TableHeader,
+  TableRow,
+  TableBody,
+  TableCell } = DataTable
 
 class CrowdSale extends Component {
 
@@ -16,11 +25,6 @@ class CrowdSale extends Component {
     match: PropTypes.func,
     details: PropTypes.Array,
     token: PropTypes.string,
-  }
-
-  constructor (props) {
-    super(props)
-
   }
 
   componentWillMount () {
@@ -35,6 +39,15 @@ class CrowdSale extends Component {
     // const n = 8
 
     const { details } = this.props
+
+    const rowData = [{
+
+      investor: "0xf17f52151EbEF6C7334FAD080c5704D77216b732",
+      txHash: "0x4168696282b72e7e2add536b4f707e02713f1824ad694d007de7e91da42cf4e7",
+      amount: "2000",
+      paid: "1",
+
+    }]
 
     return (
 
@@ -113,27 +126,42 @@ class CrowdSale extends Component {
         <div className='bx--col-xs-12'>
           <p>List of Investors</p>
 
-          <table className='bx--data-table-v2 bx--data-table-v2--compact'>
-            <thead>
-              <tr>
-                <th>Eth Address of Investor</th>
-                <th>TX Hash</th>
-                <th>Tokens Bought</th>
-                <th>Amount Invested</th>
+          <DataTable
+            rows={rowData}
+            headers={[
+              { key: "investor", header: "Investor" },
+              { key: "txHash", header: "Tx Hash" },
+              { key: "amount", header: "Amount" },
+              { key: "paid", header: "Paid" }]}
+            // eslint-disable-next-line
+            render={({ rows, headers, getHeaderProps }) => {
+              return (
+                <TableContainer title='DataTable'>
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        {headers.map((header) => (
+                          <TableHeader {...getHeaderProps({ header })}>
+                            {header.header}
+                          </TableHeader>
+                        ))}
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow key={row.id}>
+                          {row.cells.map((cell) => (
+                            <TableCell key={cell.id}>{cell.value}</TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              )
 
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr key='1' >
-                <td>0xf17f52151EbEF6C7334FAD080c5704D77216b732</td>
-                <td>0x4168696282b72e7e2add536b4f707e02713f1824ad694d007de7e91da42cf4e7</td>
-                <td>2,000.00 TRVR</td>
-                <td>1 ETH ($1,000 USD)</td>
-              </tr>
-
-            </tbody>
-          </table>
+            }}
+          />
 
         </div>
       </div>

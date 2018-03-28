@@ -32,14 +32,18 @@ export const initDemo = (ticker) => async (dispatch) => {
   // console.log(sto)
 
   let tokenDetails = null
+  let investorList = null
 
   if (sto === null) {
     await token.contract.setSTO(stoFactory, new Date(2018, 5, 7), new Date(2018, 12, 31), '1000000', '500', false, "0x524dbc9da47eAB28bfF57795A539654d72f8D098")
   } else {
 
     tokenDetails = await sto.getDetails()
+    // console.log(tokenDetails)
 
-    // console.log(await tokenDetails.getSTO())
+    investorList = await sto.getPurchases()
+
+    // console.log(await sto.getPurchases())
 
   }
 
@@ -65,6 +69,7 @@ export const initDemo = (ticker) => async (dispatch) => {
           balance: myBalance,
           token: tickerInfo,
           details: tokenDetails,
+          investors: investorList,
         }
       )
     )

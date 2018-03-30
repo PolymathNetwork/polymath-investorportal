@@ -40,6 +40,17 @@ class CrowdSale extends Component {
     // const n = 8
     const { details } = this.props
 
+    let percentage = 0
+    //Calculate progress of the fundraise
+    if(details !== null){
+      const amt_cap = details.cap.toNumber()
+      const amt_raised = details.raised.toNumber()
+      // const amt_raised = 200000
+
+      percentage = (amt_raised/amt_cap)*100
+      // console.log(percentage)
+    }
+
     return (
 
       <div className='bx--row'>
@@ -92,12 +103,12 @@ class CrowdSale extends Component {
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>Total Funds Raised</p>
-                <p className='bx--type-alpha'>{details.raised.toNumber()} POLY</p>
+                <p className='bx--type-alpha'>{details.raised.toNumber()} {details.fundraise_type? ("POLY"):("ETH")}</p>
                 <p>&nbsp;</p>
                 <div className='tokenProgress'>
-                  <span className='tokenProgressStatus'>50%</span>
-                  <span className='tokenProgressTotal'>1,000,000.00</span>
-                  <progress value='50' max='100'>50 %</progress>
+                  <span className='tokenProgressStatus'>{percentage}%</span>
+                  <span className='tokenProgressTotal'>{details.cap.toNumber()}</span>
+                  <progress value={percentage} max='100'>{percentage} %</progress>
                 </div>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>

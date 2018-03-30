@@ -41,6 +41,14 @@ export const initDemo = (ticker) => async (dispatch) => {
     tokenDetails = await sto.getDetails()
     // console.log(tokenDetails)
 
+    tokenDetails.fundraise_type = await sto.isPolyFundraise()
+
+    // console.log("is POLY?", tokenDetails.fundraise_type)
+
+    // console.log(await PolyToken.getTokens(500000))
+
+    // console.log(await sto.buyTokensWithPoly("0xF81D0c581e5088Ce742Fb37e52b78cd73bCbf07A", 1000))
+
     // investorList = await sto.getPurchases()
 
     investorList = [

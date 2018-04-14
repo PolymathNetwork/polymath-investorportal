@@ -1,2 +1,2 @@
-# polymath-crowdsale
-CrowdSale STO Overview app
+# polymath-investorportal
+STO - Investor Portal

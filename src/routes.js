@@ -1,28 +1,32 @@
+// @flow
+
 import App from './app/App'
-import HomePage from './app/HomePage'
-import CrowdSale from './app/crowdsale/CrowdSale'
 import NotFoundPage from './app/NotFoundPage'
+import SignUpPage from './app/account/SignUpPage'
+// import TickerPage from './app/ticker/TickerPage'
+// import Dashboard from './app/Dashboard'
+// import TokenPage from './app/token/TokenPage'
+// import STOPage from './app/sto/STOPage'
+import InvestorPage from './app/sto/InvestorPage'
 
 export default [
   {
     component: App,
     routes: [
-
       {
-        path: '/',
-        component: HomePage,
+        path: '/signup',
+        component: SignUpPage,
         exact: true,
       },
+
       {
-        path: '/crowdsale/:id',
-        component: CrowdSale,
+        path: '/investorportal',
+        component: InvestorPage,
         exact: true,
       },
       {
         component: NotFoundPage,
       },
-
-      // TODO Put your routes here
     ],
   },
 ]

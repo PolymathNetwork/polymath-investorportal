@@ -1,56 +1,63 @@
+// @flow
+
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import Contract from 'polymathjs'
 import { renderRoutes } from 'react-router-config'
 import { connect } from 'react-redux'
-import Contract from 'polymath.js_v2'
+import { PolymathUI, txHash, txEnd } from 'polymath-ui'
+import type { RouterHistory } from 'react-router-dom'
 
-import 'carbon-components/css/carbon-components.min.css'
-import './style.css'
+import Root from './Root'
+import { isSignedUp } from './account/actions'
+import type { RootState } from '../redux/reducer'
 
-import { setupHistory, txHash, txEnd } from './ui/actions'
+type StateProps = {|
+  network: any,
+|}
 
-class App extends Component {
-  static propTypes = {
-    route: PropTypes.shape({
-      routes: PropTypes.array,
-    }).isRequired,
-    history: PropTypes.shape({
-      location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-      }),
-    }).isRequired,
-    setupHistory: PropTypes.func.isRequired,
-    // eslint-disable-next-line
-    network: PropTypes.object.isRequired,
-    txHash: PropTypes.func.isRequired,
-    txEnd: PropTypes.func.isRequired,
-  }
+type DispatchProps = {|
+  txHash: (hash: string) => any,
+    txEnd: (receipt: any) => any,
+      isSignedUp: () => any,
+|}
+
+const mapStateToProps = (state: RootState): StateProps => ({
+  network: state.network,
+})
+
+const mapDispatchToProps: DispatchProps = {
+  txHash,
+  txEnd,
+  isSignedUp,
+}
+
+type Props = {|
+  route: Object,
+    history: RouterHistory
+      |} & StateProps & DispatchProps
+
+class App extends Component<Props> {
 
   componentWillMount () {
-    this.props.setupHistory(this.props.history)
-    Contract.params = {
+    Contract.setParams({
       ...this.props.network,
       txHashCallback: (hash) => this.props.txHash(hash),
       txEndCallback: (receipt) => this.props.txEnd(receipt),
-    }
+    })
+  }
+
+  componentDidMount () {
+    // this.props.isSignedUp()
   }
 
   render () {
     return (
-      <div className='bx--grid'>
+      <Root>
+        <PolymathUI history={this.props.history} />
         {renderRoutes(this.props.route.routes)}
-      </div>)
+      </Root>
+    )
   }
 }
-
-const mapStateToProps = (state) => ({
-  network: state.network,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  setupHistory: (history) => dispatch(setupHistory({ history })),
-  txHash: (hash) => dispatch(txHash({ hash })),
-  txEnd: (receipt) => dispatch(txEnd({ receipt })),
-})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -29,10 +29,11 @@ class BuyTokenForm extends Component<Props> {
         <Form onSubmit={this.props.handleSubmit}>
 
           <Field
-            name='ethAddress'
+            name='owner'
             component={TextInput}
             label='ETH Address'
             placeholder='Your ETH Address'
+            disabled
             validate={[required]}
           />
           <Field

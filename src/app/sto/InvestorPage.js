@@ -6,11 +6,12 @@ import { connect } from 'react-redux'
 import { STOStatus } from 'polymath-ui'
 import BigNumber from 'bignumber.js'
 import PropTypes from 'prop-types'
+import { change } from 'redux-form'
 // import type { SecurityToken, STOPurchase, STODetails } from 'polymathjs'
 
 // import NotFoundPage from '../../NotFoundPage'
 // import InvestorTable from './components/InvestorTable'
-import BuyTokenForm from './components/BuyTokenForm'
+import BuyTokenForm, { formName } from './components/BuyTokenForm'
 import { getTicker, fetch } from './actions'
 import type { RootState } from '../../redux/reducer'
 
@@ -19,19 +20,23 @@ type StateProps = {|
 |}
 
 type DispatchProps = {|
-  fetch: () => any,
+  change: (? string) => any,
+    fetch: () => any,
 |}
 
 // type Props = StateProps & DispatchProps
 
 const mapStateToProps = (state: RootState): StateProps => ({
+  account: state.network.account,
   token: state.sto.token,
   details: state.sto.details,
   purchases: state.sto.purchases,
 })
 
 const mapDispatchToProps: DispatchProps = {
-  fetch, getTicker,
+  change: (value) => change(formName, 'owner', value, false, false),
+  fetch,
+  getTicker,
 }
 
 class InvestorPage extends Component {
@@ -40,16 +45,19 @@ class InvestorPage extends Component {
     // balance: PropTypes.string,
     // account: PropTypes.string,
     getTicker: PropTypes.func.isRequired,
+    change: PropTypes.func.isRequired,
     // match: PropTypes.func,
     // details: PropTypes.Array,
     // investors: PropTypes.Array,
-    token: PropTypes.string.isRequired,
+    account: PropTypes.string.isRequired,
+    token: PropTypes.Object,
     purchases: PropTypes.Array,
   }
 
   componentWillMount () {
     // this.props.fetch()
     this.props.getTicker("SHTO")
+    this.props.change(this.props.account)
   }
 
   render () {
@@ -71,12 +79,7 @@ class InvestorPage extends Component {
           <div className='bx--col-xs-12'>
             {this.props.token ? (
               <div>
-                {/* <h1 className='bx--type-mega'>Investor Portal for {token.ticker} Token</h1>
-                <p>&nbsp;</p>
-                <p>
-                  Owner: {token.owner}
-                </p>
-                <p>&nbsp;</p> */}
+
                 <STOStatus
                   title={token.name}
                   start={details.start}
@@ -93,6 +96,7 @@ class InvestorPage extends Component {
           <div className='bx--col-xs-6'>
 
             <BuyTokenForm title='Buy Tokens' />
+
           </div>
           <div className='bx--col-xs-6'>
 
@@ -103,8 +107,11 @@ class InvestorPage extends Component {
               className='extra-class'
             />&nbsp;&nbsp;Instruction Title for Investor
             </h3>
-            <p>What to do Next:</p>
-            <p>Lorem Ipsum dolor</p>
+            <p className='bx--type-gamma'>What to do Next:</p>
+            <p className='bx--type-gamma'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+            </p>
           </div>
         </div>
 

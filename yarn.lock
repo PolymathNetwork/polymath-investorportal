@@ -458,7 +458,7 @@ async-eventemitter@^0.2.2:
   dependencies:
     async "^2.4.0"
 
-"async-eventemitter@github:ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c":
+async-eventemitter@ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c:
   version "0.2.3"
   resolved "https://codeload.github.com/ahultgren/async-eventemitter/tar.gz/fa06e39e56786ba541c180061dbf2c0a5bbf951c"
   dependencies:
@@ -8056,9 +8056,9 @@ pn@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
 
-polymath-auth@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/polymath-auth/-/polymath-auth-0.2.3.tgz#21b68f6bfac9557dfeccc7717872a2d5a28d9c44"
+polymath-auth@^0.2.5:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/polymath-auth/-/polymath-auth-0.2.4.tgz#d3f166c9c158231040df3b43a7f5cfe661afb4b0"
   dependencies:
     carbon-components-react "5.31.1"
     react "15.5.4"
@@ -8069,9 +8069,9 @@ polymath-auth@^0.2.3:
     web3-core-method "github:bshevchenko/web3-core-method#master"
     web3-eth-contract "1.0.0-beta.30"
 
-polymath-core@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/polymath-core/-/polymath-core-0.4.0.tgz#d453b459ac8f8a0d88d011f5940274920acdabc8"
+polymath-core@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/polymath-core/-/polymath-core-1.0.1.tgz#af3bf72c4d68f574cd49cf26d935c28c6684ad40"
   dependencies:
     babel-polyfill "6.26.0"
     babel-preset-es2015 "6.24.1"
@@ -8081,14 +8081,14 @@ polymath-core@0.4.0:
     bignumber.js "^6.0.0"
     readline-sync "^1.4.9"
     truffle-contract "^3.0.4"
-    truffle-hdwallet-provider "0.0.3"
+    truffle-hdwallet-provider "^0.0.3"
     truffle-hdwallet-provider-privkey "^0.1.0"
     web3 "^1.0.0-beta.33"
-    zeppelin-solidity "1.7.0"
+    zeppelin-solidity "^1.8.0"
 
-polymath-ui@^0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/polymath-ui/-/polymath-ui-0.2.6.tgz#3baec2978d74bf7482fb1fae9056d08576af726d"
+polymath-ui@^0.3.4:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/polymath-ui/-/polymath-ui-0.3.5.tgz#99e2f49441baca2c899c8a5096e56521f34c201b"
   dependencies:
     babel-runtime "^6.26.0"
     bignumber.js "^6.0.0"
@@ -8103,13 +8103,13 @@ polymath-ui@^0.2.6:
     react-transition-group "^2.2.1"
     redux "^3.7.2"
 
-polymathjs@^0.4.7:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/polymathjs/-/polymathjs-0.4.7.tgz#421ee11f91e175e649d1f382487213f17c853e25"
+polymathjs@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/polymathjs/-/polymathjs-1.0.1.tgz#5315e538ffae3830216a0b9604ced6d4d4e07dbe"
   dependencies:
     bignumber.js "5.0.0"
     bs58 "^4.0.1"
-    polymath-core "0.4.0"
+    polymath-core "1.0.1"
     redux "3.7.2"
     redux-thunk "2.2.0"
     web3 "1.0.0-beta.30"
@@ -9335,8 +9335,6 @@ rx-lite@*, rx-lite@^4.0.8:
 rxjs@^5.4.2:
   version "5.5.8"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.8.tgz#b2b0809a57614ad6254c03d7446dea0d83ca3791"
-  dependencies:
-    symbol-observable "1.0.1"
 
 safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
@@ -9758,7 +9756,17 @@ sockjs@0.3.18:
     faye-websocket "^0.10.0"
     uuid "^2.0.2"
 
-solc@0.4.21, solc@^0.4.2:
+solc@0.4.23:
+  version "0.4.23"
+  resolved "https://registry.yarnpkg.com/solc/-/solc-0.4.23.tgz#54a0ff4015827b32fddb62c0a418b5247310a58e"
+  dependencies:
+    fs-extra "^0.30.0"
+    memorystream "^0.3.1"
+    require-from-string "^1.1.0"
+    semver "^5.3.0"
+    yargs "^4.7.1"
+
+solc@^0.4.2:
   version "0.4.21"
   resolved "https://registry.yarnpkg.com/solc/-/solc-0.4.21.tgz#6a7ecd505bfa0fc268330d5de6b9ae65c8c68264"
   dependencies:
@@ -10487,7 +10495,7 @@ truffle-hdwallet-provider-privkey@^0.1.0:
     web3 "^0.20.5"
     web3-provider-engine "^13.6.4"
 
-truffle-hdwallet-provider@0.0.3:
+truffle-hdwallet-provider@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/truffle-hdwallet-provider/-/truffle-hdwallet-provider-0.0.3.tgz#0e1de02104b73d3875e1cf7093305b4ea8a2d843"
   dependencies:
@@ -10496,13 +10504,13 @@ truffle-hdwallet-provider@0.0.3:
     web3 "^0.18.2"
     web3-provider-engine "^8.4.0"
 
-truffle@^4.1.6:
-  version "4.1.6"
-  resolved "https://registry.yarnpkg.com/truffle/-/truffle-4.1.6.tgz#3887081d73973c4e79de52fb25c27bac5e527dd7"
+truffle@^4.1.7:
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/truffle/-/truffle-4.1.7.tgz#b2d66d26eafd92da868d67765953e12c8160aedb"
   dependencies:
     mocha "^3.4.2"
     original-require "^1.0.1"
-    solc "0.4.21"
+    solc "0.4.23"
 
 tty-browserify@0.0.0:
   version "0.0.0"
@@ -11835,9 +11843,9 @@ yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
-zeppelin-solidity@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/zeppelin-solidity/-/zeppelin-solidity-1.7.0.tgz#c43332926b6e84a845015c21753064eeac054df0"
+zeppelin-solidity@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/zeppelin-solidity/-/zeppelin-solidity-1.8.0.tgz#049fcde7daea9fc85210f8c6db9f8cd1ab8a853a"
   dependencies:
     dotenv "^4.0.0"
     ethjs-abi "^0.2.1"

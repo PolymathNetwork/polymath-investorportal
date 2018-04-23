@@ -10219,10 +10219,6 @@ swarm-js@0.1.37:
     tar.gz "^1.0.5"
     xhr-request-promise "^0.1.2"
 
-symbol-observable@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
-
 symbol-observable@^0.2.2:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-0.2.4.tgz#95a83db26186d6af7e7a18dbd9760a2f86d08f40"
@@ -10917,7 +10913,7 @@ web3-core-helpers@1.0.0-beta.34:
     web3-eth-iban "1.0.0-beta.34"
     web3-utils "1.0.0-beta.34"
 
-web3-core-method@1.0.0-beta.30, "web3-core-method@github:bshevchenko/web3-core-method#master":
+web3-core-method@1.0.0-beta.30, web3-core-method@bshevchenko/web3-core-method#master, "web3-core-method@github:bshevchenko/web3-core-method#master":
   version "1.0.0-beta.30"
   resolved "https://codeload.github.com/bshevchenko/web3-core-method/tar.gz/9199df8b1ea8658503ee48ba7ad391fec8e61838"
   dependencies:
